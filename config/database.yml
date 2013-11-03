@@ -1,0 +1,22 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: dating_madlibs_dev
+  pool: 5
+  host: localhost
+  username: lisafeatherknee
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: dating_madlibs_test
+  pool: 5
+  host: localhost
+  username: lisafeatherknee
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: dating_madlibs_production
+  pool: 5
+  username: lisafeatherknee

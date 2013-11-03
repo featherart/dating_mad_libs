@@ -1,0 +1,8 @@
+LOG:  database system was shut down at 2013-11-02 20:08:44 PDT
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+FATAL:  database "dating_madlibs_dev" does not exist
+FATAL:  database "madlibs_dev" does not exist
+FATAL:  database "dating_madlibs_dev" does not exist
+FATAL:  database "dating_madlibs_test" does not exist
+FATAL:  database "dating_madlibs_production" does not exist

@@ -1,0 +1,31 @@
+<link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+<div id="container">
+<div id="title">Dating Mad Libs!</div>
+	<div id="_form">
+	<%= form_for(@mad_lib, remote: true) do |f| %>
+		<div class="fields">
+		<%= f.label :noun %>
+		<%= f.text_field :noun, placeholder: :noun, autofocus: true, required: true %><br>
+		<%= f.label :proper_noun %>
+		<%= f.text_field :proper_noun, placeholder: "proper noun", required: true %><br>
+		<%= f.label :adjective %>
+		<%= f.text_field :adjective, placeholder: "adjective", required: true %><br>
+		<%= f.label :verb %> (past tense!)
+		<%= f.text_field :verb, placeholder: "verb", required: true %>
+		</div>
+		<%#= f.submit %>
+		<button type="submit" class="css3button">make mad lib</button>
+	<% end %>
+	</div>
+
+	<div id="madlibs">
+		
+		<% @mad_libs.each do |mad_lib| %>
+		
+	</li>
+	  	<%= render "mad_lib", :mad_lib => mad_lib %>
+		<% end %>
+		
+	</div>
+<%= will_paginate @mad_libs %>
+</div>

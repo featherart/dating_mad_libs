@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sentence: MyText
+  nouns: 1
+  verbs: 1
+  proper_nouns: 1
+  verb_past_tense: 1
+  verb_future_tense: 1
+
+two:
+  sentence: MyText
+  nouns: 1
+  verbs: 1
+  proper_nouns: 1
+  verb_past_tense: 1
+  verb_future_tense: 1
