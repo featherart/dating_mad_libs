@@ -11,21 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131103033708) do
+ActiveRecord::Schema.define(:version => 20131104035957) do
 
   create_table "stories", :force => true do |t|
     t.string   "noun"
     t.string   "verb"
     t.string   "adjective"
-    t.string   "second_adjective"
     t.string   "proper_noun"
-    t.string   "second_noun"
-    t.string   "third_noun"
     t.string   "verb_future_tense"
     t.string   "verb_past_tense"
     t.text     "story"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "noun2"
+    t.string   "noun3"
+    t.string   "adjective2"
+    t.text     "empty_template"
   end
 
   create_table "templates", :force => true do |t|

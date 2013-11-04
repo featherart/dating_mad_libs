@@ -6,3 +6,11 @@ FATAL:  database "madlibs_dev" does not exist
 FATAL:  database "dating_madlibs_dev" does not exist
 FATAL:  database "dating_madlibs_test" does not exist
 FATAL:  database "dating_madlibs_production" does not exist
+ERROR:  relation "story" does not exist
+STATEMENT:  ALTER TABLE "story" ADD COLUMN "template_id" integer
+ERROR:  relation "story" does not exist
+STATEMENT:  CREATE  INDEX "index_story_on_template" ON "story" ("template")
+ERROR:  relation "template" does not exist
+STATEMENT:  CREATE  INDEX "index_template_on_story" ON "template" ("story")
+ERROR:  relation "story" does not exist
+STATEMENT:  ALTER TABLE "story" ADD COLUMN "empty_template" text

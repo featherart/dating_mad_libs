@@ -1,31 +1,36 @@
-<link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+<!-- <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'> -->
 <div id="container">
 <div id="title">Dating Mad Libs!</div>
 	<div id="_form">
-	<%= form_for(@mad_lib, remote: true) do |f| %>
+	<%= form_for(@story, remote: true) do |f| %>
 		<div class="fields">
-		<%= f.label :noun %>
-		<%= f.text_field :noun, placeholder: :noun, autofocus: true, required: true %><br>
-		<%= f.label :proper_noun %>
-		<%= f.text_field :proper_noun, placeholder: "proper noun", required: true %><br>
-		<%= f.label :adjective %>
-		<%= f.text_field :adjective, placeholder: "adjective", required: true %><br>
-		<%= f.label :verb %> (past tense!)
-		<%= f.text_field :verb, placeholder: "verb", required: true %>
+		<% if @template.nouns != nil %>		
+			<%= f.label :noun %>
+			<%= f.text_field :noun, placeholder: :noun, autofocus: true, required: true %>
+			<% if @template.nouns == 2 %>			
+			<%= f.label :noun %>
+			<%= f.text_field :noun2, placeholder: :noun, required: true %>
+			<% elsif @template.nouns == 3 %>
+			<%= f.label :noun %>
+			<%= f.text_field :noun3, placeholder: :noun, required: true %>
+			<% end %>
+		<% end %> 
+		<%= hidden_field_tag :empty_template, @template.sentence %>
+		
+		<%= f.submit %>
 		</div>
-		<%#= f.submit %>
-		<button type="submit" class="css3button">make mad lib</button>
 	<% end %>
 	</div>
 
-	<div id="madlibs">
+	<div id="stories">
 		
-		<% @mad_libs.each do |mad_lib| %>
+		<% @stories.each do |story| %>
 		
-	</li>
-	  	<%= render "mad_lib", :mad_lib => mad_lib %>
+	<li data-id='<%= story.id %>'><%= story.proper_noun %> <%= story.verb %> over the <%= story.adjective %> <%= story.noun %>.
+</li>
+
 		<% end %>
 		
 	</div>
-<%= will_paginate @mad_libs %>
+
 </div>
