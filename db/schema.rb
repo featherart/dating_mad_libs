@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(:version => 20131104035957) do
     t.string   "noun2"
     t.string   "noun3"
     t.string   "adjective2"
-    t.text     "empty_template"
   end
 
   create_table "templates", :force => true do |t|

@@ -1,20 +1,39 @@
-<!-- <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'> -->
+<!-- <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'> 
+<link href='http://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo' rel='stylesheet' type='text/css'> -->
 <div id="container">
 <div id="title">Dating Mad Libs!</div>
-	<div id="_form">
+	<div id="da_form">
 	<%= form_for(@story, remote: true) do |f| %>
 		<div class="fields">
-		<% if @template.nouns != nil %>		
-			<%= f.label :noun %>
-			<%= f.text_field :noun, placeholder: :noun, autofocus: true, required: true %>
-			<% if @template.nouns == 2 %>			
-			<%= f.label :noun %>
-			<%= f.text_field :noun2, placeholder: :noun, required: true %>
+		<% if @template.nouns != nil %>				
+			<%= f.text_field :noun, placeholder: :noun, autofocus: true, required: true %> <br>
+			<% if @template.nouns == 2 %>						
+				<%= f.text_field :noun2, placeholder: "second noun", required: true %> <br>
 			<% elsif @template.nouns == 3 %>
-			<%= f.label :noun %>
-			<%= f.text_field :noun3, placeholder: :noun, required: true %>
+				<%= f.text_field :noun3, placeholder: "third noun", required: true %>
 			<% end %>
-		<% end %> 
+		<% end %>
+		<% if @template.verbs != nil %>
+			<%= f.text_field :verb, placeholder: :verb %>
+			<% if @template.verbs == 2 %>
+				<%= f.text_field :verb2, placeholder: "second verb" %>
+			<% end %>
+		<% end %>
+		<% if @template.adjectives != nil %>
+			<%= f.text_field :adjective, placeholder: :adjective %>
+			<% if @template.adjectives == 2 %>
+				<% f.text_field :adjective2, placeholder: "second adjective" %>
+			<% end %>
+		<% end %>
+		<% if @template.proper_nouns != nil %>
+			<%= f.text_field :proper_noun, placeholder: "proper noun" %>
+		<% end %>
+		<% if @template.verb_future_tense != nil %>
+			<%= f.text_field :verb_future_tense, placeholder: "verb, future tense" %>
+		<% end %>
+		<% if @template.verb_past_tense != nil %>
+			<%= f.text_field :verb_past_tense, placeholder: "verb, past tense" %>
+		<% end %>
 		<%= hidden_field_tag :empty_template, @template.sentence %>
 		
 		<%= f.submit %>
@@ -25,9 +44,8 @@
 	<div id="stories">
 		
 		<% @stories.each do |story| %>
-		
-	<li data-id='<%= story.id %>'><%= story.proper_noun %> <%= story.verb %> over the <%= story.adjective %> <%= story.noun %>.
-</li>
+	
+	  	<%= render "story", :story => story %>
 
 		<% end %>
 		

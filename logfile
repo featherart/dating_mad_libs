@@ -14,3 +14,7 @@ ERROR:  relation "template" does not exist
 STATEMENT:  CREATE  INDEX "index_template_on_story" ON "template" ("story")
 ERROR:  relation "story" does not exist
 STATEMENT:  ALTER TABLE "story" ADD COLUMN "empty_template" text
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
