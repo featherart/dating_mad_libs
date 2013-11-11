@@ -57,13 +57,14 @@
 	</div>
 
 	<div id="stories">
-		
+	<% if @stories != nil %>
 		<% @stories.each do |story| %>
 	
 	  	<%= render "story", :story => story %>
 
 		<% end %>
 		<%= will_paginate @stories %>
+	<% end %>
 	</div>
 
 </div>

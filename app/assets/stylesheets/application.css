@@ -74,11 +74,6 @@ li:nth-child(even)
 	background-color: white;
 	opacity: .8;
 }
-/*li:nth-child(odd)
-{
-	background-color: #D2B48C;
-	opacity: .8;
-}*/
 a:visited, a:link 
 {
    color: #556B2F;
