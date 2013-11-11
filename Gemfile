@@ -4,7 +4,7 @@ gem 'rails', '3.2.14'
 
 gem 'pg'
 gem 'unicorn'
-#gem 'will_paginate', '~> 3.0'
+gem 'will_paginate', '~> 3.0'
 
 group :development do
   gem 'pry-rails'

@@ -14,7 +14,8 @@
 
 body
 {
-	background-color: #ffcccc;
+	/*background-color: #ffcccc;*/
+	background-color: #CD5C5C;
 }
 #title
 {
@@ -32,25 +33,21 @@ body
 	font-family: The Girl Next Door;
 	padding: 20px;
 	text-align: center;
+	float: center;
 }
 #da_form
 {
 	background-color: white;
 	opacity: .8;
- 	padding-top: 30px;
- 	padding-bottom: 50px;
+ 	padding-top: 10px;
+ 	padding-bottom: 30px;
  	padding: 30px;
  	border: 5px solid black;
- 	max-width: 600px;
+ 	max-width: 550px;
  	font-size: 14;
-	font-family: Helvetica;
-	font-weight: bold;
-}
-#form_group
-{
-	font-size: 14;
 	font-family: The Girl Next Door;
 	font-weight: bold;
+	/*margin: auto;*/
 }
 .fields
 {
@@ -77,54 +74,51 @@ li:nth-child(even)
 	background-color: white;
 	opacity: .8;
 }
+li:nth-child(odd)
+{
+	background-color: #D2B48C;
+	opacity: .8;
+}
 a:visited, a:link 
 {
-   color: #339900;
+   color: #556B2F;
+   /*color: #339900;*/
    text-decoration: none;
 }
 a:hover
 {
-   color: #00ff00;
+   color: #339900;
    text-decoration: underline;
 }
-
-#madlibs
+button.css3button 
 {
-	font-family: The Girl Next Door;
-	padding: 30px;
-	font-weight: bold;
-	font-size: 30;
-	text-align: left;
-}
-button.css3button {
-	float: right;
+	float: center;
 	font-family: The Girl Next Door;
 	font-size: 14px;
-	color: #000000;
-	padding: 10px 20px;
+	color: #ffffff;
+	padding: 6px 8px;
 	background: -moz-linear-gradient(
 		top,
-		#ffffff 0%,
-		#c8c8c8);
+		#c2d044 0%,
+		#c2d044);
 	background: -webkit-gradient(
 		linear, left top, left bottom, 
-		from(#ffffff),
-		to(#c8c8c8));
+		from(#c2d044),
+		to(#c2d044));
 	-moz-border-radius: 0px;
 	-webkit-border-radius: 0px;
 	border-radius: 0px;
-	border: 1px solid #000000;
+	border: 0px solid #134201;
 	-moz-box-shadow:
 		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 2px rgba(255,255,255,0.7);
+		inset 0px 0px 2px rgba(255,255,255,0);
 	-webkit-box-shadow:
 		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 2px rgba(255,255,255,0.7);
+		inset 0px 0px 2px rgba(255,255,255,0);
 	box-shadow:
 		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 2px rgba(255,255,255,0.7);
+		inset 0px 0px 2px rgba(255,255,255,0);
 	text-shadow:
 		0px -1px 0px rgba(000,000,000,0.4),
 		0px 1px 0px rgba(255,255,255,0.3);
 }
-

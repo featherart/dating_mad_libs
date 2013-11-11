@@ -1,44 +1,59 @@
-<!-- <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'> 
-<link href='http://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo' rel='stylesheet' type='text/css'> -->
+<link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'> 
+<link href='http://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo' rel='stylesheet' type='text/css'>
 <div id="container">
-<div id="title">Dating Mad Libs!</div>
+<div id="title">Profile Madlibber</div>
 	<div id="da_form">
 	<%= form_for(@story, remote: true) do |f| %>
 		<div class="fields">
-		<% if @template.nouns != nil %>				
+		<% if @template.nouns != nil %>	
+			<%= f.label :noun %>		
 			<%= f.text_field :noun, placeholder: :noun, autofocus: true, required: true %> <br>
-			<% if @template.nouns == 2 %>						
+			<% if @template.nouns == 2 %>
+				<%= f.label "second noun" %>						
 				<%= f.text_field :noun2, placeholder: "second noun", required: true %> <br>
 			<% elsif @template.nouns == 3 %>
-				<%= f.text_field :noun3, placeholder: "third noun", required: true %>
+				<%= f.label "third noun" %>
+				<%= f.text_field :noun3, placeholder: "third noun" %> <br>
 			<% end %>
 		<% end %>
 		<% if @template.verbs != nil %>
-			<%= f.text_field :verb, placeholder: :verb %>
+			<%= f.label "verb" %>
+			<%= f.text_field :verb, placeholder: :verb, required: true %> <br>
 			<% if @template.verbs == 2 %>
-				<%= f.text_field :verb2, placeholder: "second verb" %>
+				<%= f.label "second verb" %>
+				<%= f.text_field :verb2, placeholder: "second verb", required: true %> <br>
 			<% end %>
 		<% end %>
+
 		<% if @template.adjectives != nil %>
-			<%= f.text_field :adjective, placeholder: :adjective %>
+			<%= f.label :adjective %>
+			<%= f.text_field :adjective, placeholder: :adjective, required: true %> <br>
 			<% if @template.adjectives == 2 %>
-				<% f.text_field :adjective2, placeholder: "second adjective" %>
+				<%= f.label "second adjective" %>
+				<%= f.text_field :adjective2, placeholder: "second adjective", required: true %> <br>
 			<% end %>
 		<% end %>
+
 		<% if @template.proper_nouns != nil %>
-			<%= f.text_field :proper_noun, placeholder: "proper noun" %>
+			<%= f.label "proper noun" %>
+			<%= f.text_field :proper_noun, placeholder: "proper noun", required: true %> <br>
 		<% end %>
+
 		<% if @template.verb_future_tense != nil %>
-			<%= f.text_field :verb_future_tense, placeholder: "verb, future tense" %>
+			<%= f.label "future tense verb" %>
+			<%= f.text_field :verb_future_tense, placeholder: "verb, future tense", required: true %> <br>
 		<% end %>
+
 		<% if @template.verb_past_tense != nil %>
-			<%= f.text_field :verb_past_tense, placeholder: "verb, past tense" %>
+			<%= f.label "past tense verb" %>
+			<%= f.text_field :verb_past_tense, placeholder: "verb, past tense", required: true %> <br>
 		<% end %>
 		<%= hidden_field_tag :empty_template, @template.sentence %>
-		
-		<%= f.submit %>
-		</div>
+	<button type="submit" class="css3button">make sh*t up</button>
+	
 	<% end %>
+		</div>
+
 	</div>
 
 	<div id="stories">
@@ -48,7 +63,7 @@
 	  	<%= render "story", :story => story %>
 
 		<% end %>
-		
+		<%= will_paginate @stories %>
 	</div>
 
 </div>

@@ -1,6 +1,7 @@
 class StoriesController < ApplicationController
   def index
-  	@stories = Story.all
+  	#@stories = Story.all
+    @stories = Story.paginate(page: params[:page], per_page: 6).order('created_at DESC') 
   	@story = Story.new
   	@template = Template.first(:offset => rand(Template.count))
   	
@@ -57,6 +58,7 @@ class StoriesController < ApplicationController
 
   def destroy
   	@story = Story.destroy(params[:id])
+    @id = params[:id]
   	respond_to do |format|
   	  format.js
   	end
