@@ -12,6 +12,8 @@
 				<%= f.label "second noun" %>						
 				<%= f.text_field :noun2, placeholder: "second noun", required: true %> <br>
 			<% elsif @template.nouns == 3 %>
+				<%= f.label "second noun" %>						
+				<%= f.text_field :noun2, placeholder: "second noun", required: true %> <br>
 				<%= f.label "third noun" %>
 				<%= f.text_field :noun3, placeholder: "third noun" %> <br>
 			<% end %>
@@ -50,12 +52,14 @@
 		<% end %>
 		<%= hidden_field_tag :empty_template, @template.sentence %>
 	
+	<%#= f.submit %>
 	
-	<% end %>
 		</div>
-		<button type="submit" class="css3button">make this sh*t up!</button>
-	</div>
 
+		<button type="submit" class="css3button">make sh*t up!</button>
+		<% end %>
+	</div>
+	</form>
 	<div id="stories">
 	<% if @stories != nil %>
 		<% @stories.each do |story| %>
