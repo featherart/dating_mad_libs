@@ -44,7 +44,14 @@ class StoriesController < ApplicationController
 
   def destroy
   	@story = Story.destroy(params[:id])
-    @id = params[:id]
+    #@id = params[:id]
+    #@id = Story.last.id
+    until @added_story != nil
+      @added_story = Story.all.sample 
+    end
+    puts "@@@@@@@@@@@@@@@@@"
+    puts @added_story
+    puts "$$$$$$$$$$$$$$$$"
   	respond_to do |format|
   	  format.js
   	end

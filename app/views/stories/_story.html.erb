@@ -1,3 +1,4 @@
 <li data-id='<%= story.id %>'><%= story.story %>
-❦ <%= link_to "delete this nonsense", story_path(story), :method => "delete", :remote => true %> 
+ ♡ <%= link_to "delete this nonsense", story_path(story), 'class' =>'delete_story', 
+:method => "delete" %> 
 </li>

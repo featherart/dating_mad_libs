@@ -38,10 +38,12 @@ Template.create([{ sentence: "I know 5 1s are a no-no, but I am oddly 9 by the s
 				 { sentence: "I'm just a down to earth 1 looking for a 5 2 to 4 with.", nouns: 2, verbs: 1, adjectives: 1 },
 				 { sentence: "I'm looking for someone 5, who shares my sense of 1 and wants to 4 my 2.", nouns: 2, verbs: 1, adjectives: 1},
 				 { sentence: "When I get drunk I 4 and sound just like 7. You should get in touch if you like 1s and 2s when you are sloppy drunk.", nouns: 2, verbs: 1, proper_nouns: 1},
-				 { sentence: "I 4 a 5 moustache every February, so I can celebrate St. 7's day in style.", nouns: 1, verbs: 1, proper_nouns: 1 },
+				 { sentence: "I 4 a creepy moustache every February, so I can celebrate Valentine's day in 5 style. Write me back, you 6 1!", nouns: 1, verbs: 1, adjectives: 2 },
 				 { sentence: "Although I go out every night, it's very 5 to meet 6 1s. That's why I'm on this 2.", nouns: 2, adjectives: 2 },
 				 { sentence: "The first thing people notice are my 1s and my 2s. I'm quite 5, too, so I'm often told I look like 7.", nouns: 2, adjectives: 2, proper_nouns: 1 },
-				 { sentence: "I had a fairly successful career in 1s before I started working as a 2.", nouns: 2 },
+				 { sentence: "I had a fairly successful career in 1s before I started working as a 2. Your mother always said you should marry a 5 3, lol!", nouns: 3, adjectives: 2 },
+				 { sentence: "Lately I've spent a lot of 1 fixing up my 2. In my spare time I like to go to dive bars for a 5 round of 3.", nouns: 3, adjectives: 1 },
+				 { sentence: "I'm seeking 5 partners in 1. If you love to 4 2s and going up to Tahoe on weekends, do get in touch.", nouns: 2, adjectives: 1, verbs: 1 }
 				 ])
 
 
