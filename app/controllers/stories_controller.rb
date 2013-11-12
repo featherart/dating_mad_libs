@@ -1,6 +1,5 @@
 class StoriesController < ApplicationController
   def index
-  	#@stories = Story.all
     @stories = Story.paginate(page: params[:page], per_page: 6).order('created_at DESC') 
   	@story = Story.new
   	@template = Template.first(:offset => rand(Template.count))
@@ -11,12 +10,6 @@ class StoriesController < ApplicationController
   end
 
   def create
-    # 1, 2, 3 => nouns
-    # 4 => verb
-    # 5, 6 => adjectives
-    # 7 => proper_noun
-    # 8 => verb_future_tense
-    # 9 => verb_past_tense
   	@story = Story.new(params[:story])
     
   	template = params[:empty_template]
@@ -40,17 +33,10 @@ class StoriesController < ApplicationController
     template.gsub!( "8", verb_future_tense ) if verb_future_tense != nil
     template.gsub!( "9", verb_past_tense ) if verb_past_tense != nil
 
-    puts "*************"
-    puts params
-    puts params[:story]["verb"]
-    puts template
-    puts "*************"
     @story.story = template
     @story.save
 
-  	respond_to do |format|
-  	  format.js
-  	end
+    render layout: false
   end
 
   def show
@@ -62,6 +48,11 @@ class StoriesController < ApplicationController
   	respond_to do |format|
   	  format.js
   	end
+  end
+
+  def select_random_template
+    @story = Story.new
+    @template = Template.first(:offset => rand(Template.count))
   end
 
 end

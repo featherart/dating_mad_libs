@@ -1,0 +1,52 @@
+<%= form_for(@story) do |f| %>
+	<div class="fields">
+	<% if @template.nouns != nil %>	
+		<%= f.label :noun %>		
+		<%= f.text_field :noun, placeholder: :noun, autofocus: true, required: true %> <br>
+		<% if @template.nouns == 2 %>
+			<%= f.label "second noun" %>						
+			<%= f.text_field :noun2, placeholder: "second noun", required: true %> <br>
+		<% elsif @template.nouns == 3 %>
+			<%= f.label "second noun" %>						
+			<%= f.text_field :noun2, placeholder: "second noun", required: true %> <br>
+			<%= f.label "third noun" %>
+			<%= f.text_field :noun3, placeholder: "third noun" %> <br>
+		<% end %>
+	<% end %>
+	<% if @template.verbs != nil %>
+		<%= f.label "verb" %>
+		<%= f.text_field :verb, placeholder: :verb, required: true %> <br>
+		<% if @template.verbs == 2 %>
+			<%= f.label "second verb" %>
+			<%= f.text_field :verb2, placeholder: "second verb", required: true %> <br>
+		<% end %>
+	<% end %>
+
+	<% if @template.adjectives != nil %>
+		<%= f.label :adjective %>
+		<%= f.text_field :adjective, placeholder: :adjective, required: true %> <br>
+		<% if @template.adjectives == 2 %>
+			<%= f.label "second adjective" %>
+			<%= f.text_field :adjective2, placeholder: "second adjective", required: true %> <br>
+		<% end %>
+	<% end %>
+
+	<% if @template.proper_nouns != nil %>
+		<%= f.label "proper noun" %>
+		<%= f.text_field :proper_noun, placeholder: "proper noun", required: true %> <br>
+	<% end %>
+
+	<% if @template.verb_future_tense != nil %>
+		<%= f.label "future tense verb" %>
+		<%= f.text_field :verb_future_tense, placeholder: "verb, future tense", required: true %> <br>
+	<% end %>
+
+	<% if @template.verb_past_tense != nil %>
+		<%= f.label "past tense verb" %>
+		<%= f.text_field :verb_past_tense, placeholder: "verb, past tense", required: true %> <br>
+	<% end %>
+	<%= hidden_field_tag :empty_template, @template.sentence %>	
+	</div>
+
+	<button type="submit" id="submit_button" class="css3button">make sh*t up!</button>
+<% end %>
