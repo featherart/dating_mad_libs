@@ -4,4 +4,4 @@ It needs a seed file with sentence templates in the form of mad libs, e.g.:
 
 "My hobbies include noun. Sometimes I pretend I am an adjective noun who performs karate like proper_noun."
 
-It will get deployed to Heroku, eventually!
+It is on Heroku at http://profile-madlibber.herokuapp.com/
