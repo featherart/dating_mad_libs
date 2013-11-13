@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  include StoriesHelper
+
   def index
     @stories = Story.paginate(page: params[:page], per_page: 6).order('created_at DESC') 
   	@story = Story.new
@@ -11,29 +13,7 @@ class StoriesController < ApplicationController
 
   def create
   	@story = Story.new(params[:story])
-    
-  	template = params[:empty_template]
-  	noun = params[:story]["noun"]
-  	noun2 = params[:story]["noun2"]
-  	noun3 = params[:story]["noun3"]
-    verb = params[:story]["verb"]
-    adjective = params[:story]["adjective"]
-    adjective2 = params[:story]["adjective2"]
-    proper_noun = params[:story]["proper_noun"]
-    verb_future_tense = params[:story]["verb_future_tense"]
-    verb_past_tense = params[:story]["verb_past_tense"]
- 
-  	template.gsub!( "1", noun) if noun != nil
-    template.gsub!( "2", noun2) if noun2 != nil
-    template.gsub!( "3", noun3) if noun3 != nil
-    template.gsub!( "4", verb) if verb != nil
-    template.gsub!( "5", adjective ) if adjective != nil
-    template.gsub!( "6", adjective2 ) if adjective2 != nil
-    template.gsub!( "7", proper_noun ) if proper_noun != nil
-    template.gsub!( "8", verb_future_tense ) if verb_future_tense != nil
-    template.gsub!( "9", verb_past_tense ) if verb_past_tense != nil
-
-    @story.story = template
+    @story.story = make_story
     @story.save
 
     render layout: false
@@ -43,15 +23,21 @@ class StoriesController < ApplicationController
   end
 
   def destroy
-  	@story = Story.destroy(params[:id])
-    #@id = params[:id]
-    #@id = Story.last.id
-    until @added_story != nil
-      @added_story = Story.all.sample 
+    if (params[:id]) != nil
+  	  @story = Story.destroy(params[:id])
     end
-    puts "@@@@@@@@@@@@@@@@@"
-    puts @added_story
-    puts "$$$$$$$$$$$$$$$$"
+    # get a random story to fill the void when 
+    # one gets destroyed - it might be better to 
+    # get the last story in the list so there aren't 
+    # any repeats
+    @added_story = Story.last
+
+    until @added_story.id != nil
+      @added_story = Story.last 
+    end
+
+    binding.pry
+ 
   	respond_to do |format|
   	  format.js
   	end

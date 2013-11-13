@@ -1,8 +1,4 @@
 var id = "<%= @added_story.id %>";
-console.log("here's id: " + id);
 var story = "<%= @added_story.story %>"
-// console.log("id: " + id);
-// var remove_it = 'li[data-id=' + id +']'
-// $(remove_it).remove();
 $("#stories").prepend("<li data-id=" + id + ">" + story + " ♡ <%= escape_javascript(link_to 'delete this nonsense', story_path(@added_story), 'class' =>'delete_story', 
 :method => 'delete') %></li>");
