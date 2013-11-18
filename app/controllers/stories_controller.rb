@@ -15,11 +15,16 @@ class StoriesController < ApplicationController
   	@story = Story.new(params[:story])
     @story.story = make_story
     @story.save
-
+    # this prevents us from having the layout header rendered twice
     render layout: false
   end
 
   def show
+    @story = Story.find(params[:id])
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
@@ -35,8 +40,6 @@ class StoriesController < ApplicationController
     until @added_story.id != nil
       @added_story = Story.last 
     end
-
-    binding.pry
  
   	respond_to do |format|
   	  format.js
@@ -47,5 +50,4 @@ class StoriesController < ApplicationController
     @story = Story.new
     @template = Template.first(:offset => rand(Template.count))
   end
-
 end
