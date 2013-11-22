@@ -24,9 +24,6 @@ $(function () {
 		    url: url,
 		    type: 'DELETE',
 		    success: function(result) {
-		    	//$('#stories').prepend("<li>hello</li>");
-		    	// console.log(result);
-		    	// console.log(target);
 				target.parent('li').remove();
 		    }
 		});
